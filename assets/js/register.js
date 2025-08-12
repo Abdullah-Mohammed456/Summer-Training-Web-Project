@@ -66,7 +66,7 @@ if (submit) {
       } catch (_) {}
       window.location.href = "./login&register.html";
     } catch (error) {
-      alert(error.message || "Registration failed");
+      alert("Registration failed");
     }
   });
 }

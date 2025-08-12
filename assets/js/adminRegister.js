@@ -64,7 +64,7 @@ async function handleAdminRegister(event) {
     } catch (_) {}
     window.location.href = "./login&register.html";
   } catch (error) {
-    alert(error?.message || "Admin registration failed");
+    alert("Admin registration failed");
   }
 }
 

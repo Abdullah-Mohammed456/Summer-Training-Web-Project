@@ -60,7 +60,7 @@ if (loginButton) {
       window.location.href =
         role === "admin" ? "./AdminPage.html" : "./Homepage.html";
     } catch (error) {
-      alert(error.message || "Login failed");
+      alert("Login failed");
     }
   });
 }
