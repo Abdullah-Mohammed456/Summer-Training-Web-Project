@@ -51,30 +51,30 @@ if (adminRegisterBtn) {
     });
 })();
 
-// Password strength indicator (register only)
+// Password strength 
 (function(){
-    (function initPasswordStrengthFor(selectorInputId, selectorWrapperId) {
-        const passwordInput = document.getElementById(selectorInputId);
-        const strengthWrap = document.getElementById(selectorWrapperId);
+    const evaluatePasswordStrength = (value) => {
+        let score = 0;
+        if (value.length >= 8) score++;
+        if (/[A-Z]/.test(value)) score++;
+        if (/[a-z]/.test(value)) score++;
+        if (/[0-9]/.test(value)) score++;
+        if (/[^A-Za-z0-9]/.test(value)) score++;
+        if (value.length === 0) return { cls: '', text: 'Strength: —' };
+        if (score <= 2) return { cls: 'weak', text: 'Strength: Weak' };
+        if (score === 3 || score === 4) return { cls: 'medium', text: 'Strength: Medium' };
+        return { cls: 'strong', text: 'Strength: Strong' };
+    };
+
+    const initPasswordStrengthFor = (inputId, wrapperId) => {
+        const passwordInput = document.getElementById(inputId);
+        const strengthWrap = document.getElementById(wrapperId);
         if (!passwordInput || !strengthWrap) return;
 
         const label = strengthWrap.querySelector('.strength-label');
 
-        const evaluateStrength = (value) => {
-            let score = 0;
-            if (value.length >= 8) score++;
-            if (/[A-Z]/.test(value)) score++;
-            if (/[a-z]/.test(value)) score++;
-            if (/[0-9]/.test(value)) score++;
-            if (/[^A-Za-z0-9]/.test(value)) score++;
-            if (value.length === 0) return { cls: '', text: 'Strength: —' };
-            if (score <= 2) return { cls: 'weak', text: 'Strength: Weak' };
-            if (score === 3 || score === 4) return { cls: 'medium', text: 'Strength: Medium' };
-            return { cls: 'strong', text: 'Strength: Strong' };
-        };
-
         const updateUI = () => {
-            const { cls, text } = evaluateStrength(passwordInput.value);
+            const { cls, text } = evaluatePasswordStrength(passwordInput.value);
             strengthWrap.classList.remove('weak', 'medium', 'strong');
             if (cls) strengthWrap.classList.add(cls);
             if (label) label.textContent = text;
@@ -82,39 +82,10 @@ if (adminRegisterBtn) {
 
         passwordInput.addEventListener('input', updateUI);
         updateUI();
-    })('register-password', 'register-password-strength');
+    };
 
-    // also for admin register
-    (function initPasswordStrengthFor(selectorInputId, selectorWrapperId) {
-        const passwordInput = document.getElementById(selectorInputId);
-        const strengthWrap = document.getElementById(selectorWrapperId);
-        if (!passwordInput || !strengthWrap) return;
-
-        const label = strengthWrap.querySelector('.strength-label');
-
-        const evaluateStrength = (value) => {
-            let score = 0;
-            if (value.length >= 8) score++;
-            if (/[A-Z]/.test(value)) score++;
-            if (/[a-z]/.test(value)) score++;
-            if (/[0-9]/.test(value)) score++;
-            if (/[^A-Za-z0-9]/.test(value)) score++;
-            if (value.length === 0) return { cls: '', text: 'Strength: —' };
-            if (score <= 2) return { cls: 'weak', text: 'Strength: Weak' };
-            if (score === 3 || score === 4) return { cls: 'medium', text: 'Strength: Medium' };
-            return { cls: 'strong', text: 'Strength: Strong' };
-        };
-
-        const updateUI = () => {
-            const { cls, text } = evaluateStrength(passwordInput.value);
-            strengthWrap.classList.remove('weak', 'medium', 'strong');
-            if (cls) strengthWrap.classList.add(cls);
-            if (label) label.textContent = text;
-        };
-
-        passwordInput.addEventListener('input', updateUI);
-        updateUI();
-    })('admin-register-password', 'admin-password-strength');
+    initPasswordStrengthFor('register-password', 'register-password-strength');
+    initPasswordStrengthFor('admin-register-password', 'admin-password-strength');
 })();
 
 // Admin secret key validation

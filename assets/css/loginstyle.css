@@ -7,7 +7,7 @@
      box-sizing: border-box;
      text-decoration: none;
      list-style: none;
-}
+}   
 
 body{
     display: flex;
@@ -68,6 +68,7 @@ body.bg-admin::before { background-image: url('../images/car-admin.jpg'); }
 .container h1 {
     font-size: 36px;
     margin: -10px 0;
+    padding-top: 20px;
 }
 
 .container p {
@@ -230,7 +231,7 @@ form {
     position: absolute;
     width: 50%;
     height: 100%;
-    color: #fff;
+    color: #fff8e7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -239,6 +240,8 @@ form {
     transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1), right 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s linear 0.1s;
     will-change: left, right, opacity;
     transform: translateZ(0);
+    text-shadow: 2px 2px 5px #8b4513;
+
 }
 
 .toggle-panel.toggle-left {
