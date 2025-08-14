@@ -47,7 +47,7 @@ if (loginButton) {
       const normalizedEmail = (email || "").toLowerCase();
       const adminEmails = ["admin@123.com"];
       if (adminEmails.includes(normalizedEmail)) {
-        window.location.href = "./pages/AdminPage.html";
+        window.location.href = "./AdminPage.html";
         return;
       }
       let role = "user";
@@ -58,7 +58,7 @@ if (loginButton) {
         }
       } catch (roleErr) {}
       window.location.href =
-        role === "admin" ? "./pages/AdminPage.html" : "./pages/Homepage.html";
+        role === "admin" ? "./AdminPage.html" : "./PurchasePage.html";
     } catch (error) {
       alert("Login failed");
     }

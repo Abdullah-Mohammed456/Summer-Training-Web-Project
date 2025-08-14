@@ -1,187 +1,229 @@
-*{
+* {
   margin: 0;
 }
-body{
+body {
   height: 10000px;
   overflow-x: hidden;
+  background-color: #000000;
 }
-.first{
+.first {
   position: relative;
   top: 0;
-  height: 500px;
+  height: 700px;
   overflow-y: hidden;
 }
 .img1 img {
   width: 100%;
-  display: block; 
+  display: block;
   position: absolute;
-  height: 500px;  
+  height: 640px;
 }
-.img1{
-    height:auto;
-overflow: hidden;
+.img1 {
+  height: auto;
+  overflow: hidden;
 }
-.text1{
+.text0 {
   position: absolute;
-  top: 100px;
-  font-size: 50px;
-  color: #ffffff;
-  text-transform: capitalize;
+  top: 140px;
+  font-size: 96px;
+  color: #eeeaea;
+  text-transform: none;
   margin-left: 12px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-bottom: 2px;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  padding-left: 40px;
 }
-.grid1{position: absolute;
-  bottom: 53px;
-  display: flex;
-  left: 50%;
-  transform: translate(-50%);
+.text1 {
+  position: absolute;
+  top: 370px;
+  font-size: 18px;
+  color: darkgray;
+  text-transform: none;
+  margin-left: 12px;
+  padding-bottom: 2px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+  max-width: 520px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  padding-left: 40px;
+  font-style: normal;
 }
-.grid1 > div{
-  display: grid;
-  z-index: 10;
-  place-content: center;
-  background-color:white;
-  width: 150px;
-  height: 55px;
-  grid-template-columns: repeat(7,auto);
+
+/* Primary CTA under hero copy */
+.cta-primary {
+  position: absolute;
+  top: 460px;
+  left: 52px;
+  display: inline-block;
+  background-color: #e43d34;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(228, 61, 52, 0.35);
 }
-.grid2 > div{ display: grid;
-  z-index: 10;
-  place-content: center;
-  background-color:white;
-  width: 150px;
-  height: 53px;
-  padding-left: 4px;
+.cta-primary:hover {
+  background-color: #ff4e43;
 }
-#item4 , #item5{
+
+#item4,
+#item5 {
   width: 220px;
 }
-#item8{
+#item8 {
   background-color: rgb(95, 123, 174);
   color: #ffffff;
 }
 
-.grid2{position: absolute;
-  bottom: 0px;
+.grid2 {
+  position: absolute;
+  bottom: -150px;
   transform: translatey(-100%);
   display: flex;
   left: 50%;
   transform: translateX(-50%);
 }
-#item2{
+#item2 {
   background-color: #ebe2e2;
 }
-#item3{
+#item3 {
   background-color: #b8b0b0;
 }
-.grid1 ,.grid2{
+.grid1,
+.grid2 {
   text-transform: capitalize;
-    font-family: "Bitcount Prop Double", system-ui;
-    font-weight: 500;
+  font-family: "Bitcount Prop Double", system-ui;
+  font-weight: 500;
 }
-.grid1 > div:hover , .grid2 > div:hover{
+.grid1 > div:hover,
+.grid2 > div:hover {
   text-decoration: underline;
   transition: 0.2s;
 }
-p{padding: 30px;
+p {
+  padding: 30px;
   margin-top: 30px;
-   font-size: 30px;
+  font-size: 30px;
   text-transform: capitalize;
   margin-left: 40px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 600;
   font-style: normal;
 }
-.cars{
-  display: flex;
-  align-items: space-around;
-justify-content: space-around;
-margin-top: 30px;  
+.cars {
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
 }
-.cars >div{
-position: relative;
+.cars-track {
+  display: inline-flex;
+  gap: 24px;
+  align-items: stretch;
+  animation: scroll-categories 24s linear infinite;
+}
+.cars:hover .cars-track {
+  animation-play-state: paused;
+}
+.cars-track > div {
+  position: relative;
   width: 190px;
   height: 220px;
   display: grid;
-  transition: .3s;
+  transition: 0.3s;
 }
-.cars >div:hover{
-  transform: scale(1.02);  
+.cars-track > div:hover {
+  transform: scale(1.02);
 }
-.cars img{
+.cars-track img {
   top: -2px;
   overflow: hidden;
-    width: 190px;
+  width: 190px;
   height: 220px;
   border-radius: 10px;
 }
-div span{position: absolute;
+@keyframes scroll-categories {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+div span {
+  position: absolute;
   color: #fbfbfb;
   font-size: 20px;
   top: 2px;
   margin-left: 10px;
   margin-top: 10px;
 }
-i{position: absolute;
+i {
+  position: absolute;
   bottom: 0;
   right: 0;
   color: #ffffff;
   margin: 5px;
 }
-i:hover{
-  transform: translate(-2px,-2px);
+i:hover {
+  transform: translate(-2px, -2px);
 }
-.third{
+.third {
   position: relative;
   background-color: #eeeaea;
   width: 100%;
   height: 400px;
 }
-.but1{
+.but1 {
   position: absolute;
   top: 30px;
   right: 40px;
-  background-color: rgb(95, 123, 174) ;
+  background-color: rgb(95, 123, 174);
   border-radius: 60px;
   width: 100px;
   height: 30px;
   color: #ffffff;
   border: transparent;
 }
-.but1:hover{
-  background-color:  rgba(100, 129, 183, 0.802);
+.but1:hover {
+  background-color: rgba(100, 129, 183, 0.802);
 }
-.vehicles{
+.vehicles {
   display: flex;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
   position: relative;
   gap: 50px;
 }
-.vehicles div{
+.vehicles div {
   position: relative;
-width: 210px;
-height: 240px;
-background-color:white;
+  width: 210px;
+  height: 240px;
+  background-color: white;
 }
-.vehicles div img{
+.vehicles div img {
   position: absolute;
   width: 200px;
   top: 40%;
   margin-top: -10px;
 }
-.vehicles div{
+.vehicles div {
   position: relative;
-  transition: .3s;
-} 
-.vehicles div:hover{
-  background-color:   rgba(100, 129, 183, 0.802);
+  transition: 0.3s;
 }
-.but2{
+.vehicles div:hover {
+  background-color: rgba(100, 129, 183, 0.802);
+}
+.but2 {
   position: absolute;
-  background-color:white;
-border: 2px solid rgb(213, 204, 204);
-border-radius: 20px;
+  background-color: white;
+  border: 2px solid rgb(213, 204, 204);
+  border-radius: 20px;
   width: 100px;
   height: 30px;
   bottom: 5px;
@@ -189,10 +231,10 @@ border-radius: 20px;
   display: grid;
   place-content: center;
 }
-.but2:hover{
+.but2:hover {
   background-color: #e7dfdf;
 }
-.vehicles .footer{
+.vehicles .footer {
   position: absolute;
   top: 100%;
   transform: translateY(-35px);
@@ -200,20 +242,77 @@ border-radius: 20px;
   color: #000000;
   font-size: 15px;
 }
-.ve1{
-position: absolute;
-top: 10px;
-left: 10px;
+.ve1 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   font-size: 20px;
   background-color: transparent;
 }
-.header{
+.header {
   position: absolute;
   top: 15px;
   left: 20px;
   color: rgb(68, 65, 65);
- font-size: 16px;
- letter-spacing: 1px;
- font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+.img1 #homePage {
+  position: absolute;
+  width: auto;
+  right: 0px;
+  image-rendering: smooth;
+  /* filter: blur(0.4px) contrast(110%) brightness(105%); */
+}
+* {
+  text-decoration: none;
+}
+.navdiv {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.logo {
+  padding-top: 1%;
+  font-size: 36px;
+  font-weight: bold;
 
+  letter-spacing: 2px;
+  background: linear-gradient(to left, white -50%, red 170%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 40px;
+}
+li {
+  list-style: none;
+  display: inline-block;
+}
+li a {
+  background: linear-gradient(to left, white -50%, red 170%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+  padding-right: 25px;
+}
+
+/* Right-aligned nav CTA */
+.nav-cta {
+  background-color: #e43d34;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(228, 61, 52, 0.35);
+}
+.nav-cta:hover {
+  background-color: #ff4e43;
 }

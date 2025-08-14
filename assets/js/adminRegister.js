@@ -62,7 +62,7 @@ async function handleAdminRegister(event) {
     try {
       await signOut(auth);
     } catch (_) {}
-    window.location.href = "./index.html";
+    window.location.href = "./pages/login&register.html";
   } catch (error) {
     alert("Admin registration failed");
   }

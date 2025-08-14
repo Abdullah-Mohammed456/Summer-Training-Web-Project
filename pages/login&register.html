@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup form</title>
+    <link rel="stylesheet" href="../assets/css/loginstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login">
+            <form action="#">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input id="login-email" type="email" placeholder="Email" aria-label="Email" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input id="login-password" type="password" placeholder="Password" aria-label="Password" required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="login-password" aria-label="Show password"
+                        role="button" tabindex="0"></i>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button id="login-btn" type="submit" class="btn">Login</button>
+                <p>or login with social platforms</p>
+                <div class="social-icons">
+                    <a href="#" class="social google" aria-label="Continue with Google"><i
+                            class="fa-brands fa-google"></i></a>
+                    <a href="#" class="social facebook" aria-label="Continue with Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social github" aria-label="Continue with GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social linkedin" aria-label="Continue with LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+
+            </form>
+        </div>
+        <!-- Register Form -->
+        <div class="form-box register">
+            <form action="#">
+                <h1>Register</h1>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Username" aria-label="Username" required id="register-username">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" placeholder="Email" aria-label="Email" required id="register-email">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="input-box">
+                    <input id="register-password" type="password" placeholder="Password" aria-label="Password" required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="register-password"
+                        aria-label="Show password" role="button" tabindex="0"></i>
+                </div>
+                <div class="password-strength" id="register-password-strength">
+                    <div class="strength-bar"></div>
+                    <span class="strength-label">Strength: —</span>
+                </div>
+
+                <button type="submit" class="btn" id="register-btn">Register</button>
+                <p>or register with social platforms</p>
+                <div class="social-icons">
+                    <a href="#" class="social google" aria-label="Continue with Google"><i
+                            class="fa-brands fa-google"></i></a>
+                    <a href="#" class="social facebook" aria-label="Continue with Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social github" aria-label="Continue with GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social linkedin" aria-label="Continue with LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Admin Register Form -->
+        <div class="form-box admin-register">
+            <form action="#" id="admin-register-form">
+                <h1>Admin Register</h1>
+
+                <div class="input-box">
+                    <input id="admin-register-username" type="text" placeholder="Admin Username"
+                        aria-label="Admin Username" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="input-box">
+                    <input id="admin-register-email" type="email" placeholder="Admin Email" aria-label="Admin Email"
+                        required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div class="input-box">
+                    <input id="admin-register-password" type="password" placeholder="Password" aria-label="Password"
+                        required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="admin-register-password"
+                        aria-label="Show password" role="button" tabindex="0"></i>
+                </div>
+
+                <div class="input-box">
+                    <input id="admin-secret-key" type="password" placeholder="Secret Key" aria-label="Admin Secret Key"
+                        required>
+                    <i class="fa-solid fa-key"></i>
+                </div>
+
+                <div class="password-strength" id="admin-password-strength">
+                    <div class="strength-bar"></div>
+                    <span class="strength-label">Strength: —</span>
+                </div>
+
+                <button id="admin-register-btn" type="submit" class="btn">Register as Admin</button>
+                <p>Admin only</p>
+            </form>
+        </div>
+
+        <!-- Toggle Box  -->
+        <div class="toggle-box">
+
+            <!-- Toggle Box Left -->
+            <div class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an Account?</p>
+                <button class="btn register-btn">Register</button>
+                <p>Are you an Admin?</p>
+                <button class="btn admin-register-btn">Admin Register</button>
+            </div>
+
+            <!-- Toggle Box Right -->
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an Account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../assets/js/loginscript.js"></script>
+<script type="module" src="../assets/js/Login.js"></script>
+<script type="module" src="../assets/js/register.js"></script>
+<script type="module" src="../assets/js/adminRegister.js"></script>
+
+</html>

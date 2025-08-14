@@ -64,7 +64,7 @@ if (submit) {
       try {
         await signOut(auth);
       } catch (_) {}
-      window.location.href = "./index.html";
+      window.location.href = "./login&register.html";
     } catch (error) {
       alert("Registration failed");
     }
