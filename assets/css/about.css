@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #000;
+    background: #111;
     color: #fff;
 }
 
@@ -19,22 +19,26 @@ header { background: transparent; }
     justify-content: space-between;
     gap: 16px;
 }
+
 .logo {
     padding-top: 1%;
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 2px;
     background: linear-gradient(to left, white -50%, red 170%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-left: 40px;
 }
+
 * { text-decoration: none; }
 
 li { list-style: none; display: inline-block; }
 
 li a {
     background: linear-gradient(to left, white -50%, red 170%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 18px;
@@ -42,7 +46,6 @@ li a {
     margin-right: 25px;
     padding-right: 25px;
 }
-
 .nav-cta {
     background-color: #e43d34;
     color: #ffffff;
@@ -54,9 +57,21 @@ li a {
 .nav-cta:hover { background-color: #ff4e43; }
 
 .hero {
-    background: linear-gradient(to right, black, red);
+    background: transparent;
     padding: 50px;
     text-align: center;
+}
+
+.background img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    height: 15rem;
+    z-index: -1;
+}
+.background {
+    height: auto;
+    overflow: hidden;
 }
 .hero h1 { font-size: 2.5rem; }
 .hero p { max-width: 600px; margin: auto; opacity: 0.9; }
