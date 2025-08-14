@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+
+}
+
+body{
+     height: 100vh;
+  overflow-x: hidden;
+  background-color: #000000;
+}
+.contact_navbar{
+    position: relative;
+  top: 0;
+  height:15rem ;
+  overflow-y: hidden;
+
+}
+.contact_navdiv{
+position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+    
+}
+.contact_logo{
+    padding-top: 1%;
+  font-size: 36px;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+  background: linear-gradient(to left, white -50%, red 170%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 40px;
+}
+.contact_navdiv li{
+    list-style: none;
+    display: inline-block;
+}
+.contact_navdiv li a{
+     background: linear-gradient(to left, white -50%, red 170%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+  padding-right: 25px;
+}
+
+.contact-nav-cta {
+  background-color: #e43d34;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(228, 61, 52, 0.35);
+  margin-right: 14px;
+}
+.contact-nav-cta:hover {
+  background-color: #ff4e43;
+}
+.background img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  height:15rem ;
+  
+  z-index: -1;
+}
+.background {
+  height: auto;
+  overflow: hidden;
+  
+}
+.contact_div{
+    height: 300px;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+   margin: 5% ;
+
+}
+.box{
+    
+    height: 30%;
+    border-radius: 50px;
+    background: #111;
+    padding: 50px;
+    margin: 2rem;
+    text-align: center;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}
+.Text0{
+    height: 20px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 3%;
+    font-size: 4.5em;
+}
+p{
+    color: white;
+    line-height: 1.7;
+}
