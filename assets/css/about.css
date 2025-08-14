@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+}
+
+* { margin: 0; }
+ul { margin: 0; padding: 0; }
+header { background: transparent; }
+
+.navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navdiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.logo {
+    padding-top: 1%;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(to left, white -50%, red 170%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 40px;
+}
+* { text-decoration: none; }
+
+li { list-style: none; display: inline-block; }
+
+li a {
+    background: linear-gradient(to left, white -50%, red 170%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 25px;
+    padding-right: 25px;
+}
+
+.nav-cta {
+    background-color: #e43d34;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(228, 61, 52, 0.35);
+}
+.nav-cta:hover { background-color: #ff4e43; }
+
+.hero {
+    background: linear-gradient(to right, black, red);
+    padding: 50px;
+    text-align: center;
+}
+.hero h1 { font-size: 2.5rem; }
+.hero p { max-width: 600px; margin: auto; opacity: 0.9; }
+
+.about-section {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    padding: 40px 50px;
+}
+.about-tabs {
+    display: grid;
+    align-content: start;
+    background: #111;
+    border-radius: 6px;
+    padding: 12px;
+}
+.tab-btn {
+    text-align: left;
+    background: transparent;
+    color: #ffffff;
+    padding: 14px 16px;
+    border: 1px solid #2a2a2a;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s, border-color 0.2s;
+}
+.tab-btn + .tab-btn { margin-top: 10px; }
+.tab-btn:hover { background: #1a1a1a; border-color: #444; }
+.tab-btn.active { background: #e43d34; border-color: #e43d34; }
+
+.about-content {
+    background: #111;
+    padding: 24px;
+    border-radius: 6px;
+    line-height: 1.7;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}

@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
+    <title>About Us - NetClaks</title>
+    <link rel="stylesheet" href="../assets/css/about.css">
 </head>
-
 <body>
-    <h1>About Page will be here Soon</h1>
-</body>
+    
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">NetClaks</div>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/about.html" class="active">About</a></li>
+                    <li><a href="../pages/products.html">Products</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/login&register.html">Login</a></li>
+                </ul>
+                <a href="#who" class="nav-cta">Explore</a>
+            </div>
+        </nav>
+    </header>
 
+    <section class="hero">
+        <div class="hero-text">
+            <h1>About Us</h1>
+            <p>Learn more about NetClaks, our journey, and our vision for the future of automotive excellence.</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <aside class="about-tabs">
+            <button class="tab-btn active" data-tab="who">Who are we?</button>
+            <button class="tab-btn" data-tab="vision">Our vision</button>
+            <button class="tab-btn" data-tab="message">Our message</button>
+            <button class="tab-btn" data-tab="goal">Our goal</button>
+        </aside>
+
+        <main class="about-content">
+            <div class="tab-content active" id="who">
+                <h2>Who we are</h2>
+                <p>Netclaks was established in 2013 and has become one of the leading car trading companies in Egypt. Over the years, we have built a strong presence in the Egyptian market, offering renowned international brands for every type of car and delivering flexible sales services tailored to the needs of different customers.</p>
+                <p>We exceeded our highest sales milestone in 2018 thanks to a customer-first management philosophy. Our team provides all services necessary to meet customer needs, including excellent support for questions and inquiries, as well as installment plans and financing facilities provided by Netclaks.</p>
+            </div>
+            <div class="tab-content" id="vision">
+                <h2>Our vision</h2>
+                <p>To be your trusted partner in choosing your car. We aim to offer all major brands and make every step of buying a new car simple, transparent, and delightful.</p>
+            </div>
+            <div class="tab-content" id="message">
+                <h2>Our message</h2>
+                <p>We are here for you with a wide range of offers and installment systems. Our consultants help you choose what suits you best, and we continuously strive to deliver outstanding customer service.</p>
+            </div>
+            <div class="tab-content" id="goal">
+                <h2>Our goal</h2>
+                <p>To make buying a car an enjoyable and practical experience through our dedicated team that supports you at every step, while providing multiple payment options and installment plans with competitive banking rates.</p>
+            </div>
+        </main>
+    </section>
+
+    <footer>
+        <p>© 2025 NetClaks. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/js/about.js"></script>
+</body>
 </html>

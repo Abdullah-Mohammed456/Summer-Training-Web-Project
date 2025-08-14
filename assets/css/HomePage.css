@@ -260,7 +260,7 @@ i:hover {
 }
 .img1 #homePage {
   position: absolute;
-  width: auto;
+  width: 800px;
   right: 0px;
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
