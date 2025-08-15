@@ -46,10 +46,7 @@ if (loginButton) {
       const uid = cred.user.uid;
       const normalizedEmail = (email || "").toLowerCase();
       const adminEmails = ["admin@123.com"];
-      if (adminEmails.includes(normalizedEmail)) {
-        window.location.href = "./AdminPage.html";
-        return;
-      }
+      
       let role = "user";
       try {
         const snap = await get(ref(db, `roles/${uid}`));
@@ -57,8 +54,17 @@ if (loginButton) {
           role = snap.val()?.role || "user";
         }
       } catch (roleErr) {}
+      
+      // Set login state
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      if (adminEmails.includes(normalizedEmail)) {
+        window.location.href = "./AdminPage.html";
+        return;
+      }
+      
       window.location.href =
-        role === "admin" ? "./AdminPage.html" : "./PurchasePage.html";
+        role === "admin" ? "./AdminPage.html" : "./products.html";
     } catch (error) {
       alert("Login failed");
     }
