@@ -1,27 +1,34 @@
 * {
   margin: 0;
 }
+
 body {
-  height: 10000px;
+  height: auto;
   overflow-x: hidden;
   background-color: #000000;
+  margin: 0;
+  padding: 0;
 }
+
 .first {
   position: relative;
   top: 0;
   height: 700px;
   overflow-y: hidden;
 }
+
 .img1 img {
   width: 100%;
   display: block;
   position: absolute;
   height: 640px;
 }
+
 .img1 {
   height: auto;
   overflow: hidden;
 }
+
 .text0 {
   position: absolute;
   top: 140px;
@@ -38,6 +45,7 @@ body {
   letter-spacing: 0.5px;
   padding-left: 40px;
 }
+
 .text1 {
   position: absolute;
   top: 370px;
@@ -67,6 +75,7 @@ body {
   font-weight: 600;
   box-shadow: 0 6px 18px rgba(228, 61, 52, 0.35);
 }
+
 .cta-primary:hover {
   background-color: #ff4e43;
 }
@@ -75,6 +84,7 @@ body {
 #item5 {
   width: 220px;
 }
+
 #item8 {
   background-color: rgb(95, 123, 174);
   color: #ffffff;
@@ -88,23 +98,28 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
+
 #item2 {
   background-color: #ebe2e2;
 }
+
 #item3 {
   background-color: #b8b0b0;
 }
+
 .grid1,
 .grid2 {
   text-transform: capitalize;
   font-family: "Bitcount Prop Double", system-ui;
   font-weight: 500;
 }
-.grid1 > div:hover,
-.grid2 > div:hover {
+
+.grid1>div:hover,
+.grid2>div:hover {
   text-decoration: underline;
   transition: 0.2s;
 }
+
 p {
   padding: 30px;
   margin-top: 30px;
@@ -116,30 +131,36 @@ p {
   font-weight: 600;
   font-style: normal;
 }
+
 .cars {
   position: relative;
   overflow: hidden;
   margin-top: 30px;
 }
+
 .cars-track {
   display: inline-flex;
   gap: 24px;
   align-items: stretch;
   animation: scroll-categories 24s linear infinite;
 }
+
 .cars:hover .cars-track {
   animation-play-state: paused;
 }
-.cars-track > div {
+
+.cars-track>div {
   position: relative;
   width: 190px;
   height: 220px;
   display: grid;
   transition: 0.3s;
 }
-.cars-track > div:hover {
+
+.cars-track>div:hover {
   transform: scale(1.02);
 }
+
 .cars-track img {
   top: -2px;
   overflow: hidden;
@@ -147,14 +168,17 @@ p {
   height: 220px;
   border-radius: 10px;
 }
+
 @keyframes scroll-categories {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
 }
+
 div span {
   position: absolute;
   color: #fbfbfb;
@@ -163,6 +187,7 @@ div span {
   margin-left: 10px;
   margin-top: 10px;
 }
+
 i {
   position: absolute;
   bottom: 0;
@@ -170,15 +195,18 @@ i {
   color: #ffffff;
   margin: 5px;
 }
+
 i:hover {
   transform: translate(-2px, -2px);
 }
+
 .third {
   position: relative;
   background-color: #eeeaea;
   width: 100%;
   height: 400px;
 }
+
 .but1 {
   position: absolute;
   top: 30px;
@@ -190,9 +218,11 @@ i:hover {
   color: #ffffff;
   border: transparent;
 }
+
 .but1:hover {
   background-color: rgba(100, 129, 183, 0.802);
 }
+
 .vehicles {
   display: flex;
   align-items: center;
@@ -200,25 +230,30 @@ i:hover {
   position: relative;
   gap: 50px;
 }
+
 .vehicles div {
   position: relative;
   width: 210px;
   height: 240px;
   background-color: white;
 }
+
 .vehicles div img {
   position: absolute;
   width: 200px;
   top: 40%;
   margin-top: -10px;
 }
+
 .vehicles div {
   position: relative;
   transition: 0.3s;
 }
+
 .vehicles div:hover {
   background-color: rgba(100, 129, 183, 0.802);
 }
+
 .but2 {
   position: absolute;
   background-color: white;
@@ -231,9 +266,11 @@ i:hover {
   display: grid;
   place-content: center;
 }
+
 .but2:hover {
   background-color: #e7dfdf;
 }
+
 .vehicles .footer {
   position: absolute;
   top: 100%;
@@ -242,6 +279,7 @@ i:hover {
   color: #000000;
   font-size: 15px;
 }
+
 .ve1 {
   position: absolute;
   top: 10px;
@@ -249,6 +287,7 @@ i:hover {
   font-size: 20px;
   background-color: transparent;
 }
+
 .header {
   position: absolute;
   top: 15px;
@@ -258,6 +297,7 @@ i:hover {
   letter-spacing: 1px;
   font-weight: 900;
 }
+
 .img1 #homePage {
   position: absolute;
   width: 800px;
@@ -265,9 +305,11 @@ i:hover {
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
 }
+
 * {
   text-decoration: none;
 }
+
 .navdiv {
   position: relative;
   display: flex;
@@ -275,10 +317,12 @@ i:hover {
   justify-content: space-between;
   gap: 16px;
 }
+
 .navbar {
   padding-right: 15px;
   padding-left: 15px;
 }
+
 .logo {
   padding-top: 1%;
   font-size: 36px;
@@ -290,10 +334,12 @@ i:hover {
   -webkit-text-fill-color: transparent;
   padding-left: 40px;
 }
+
 li {
   list-style: none;
   display: inline-block;
 }
+
 li a {
   background: linear-gradient(to left, white -50%, red 170%);
   -webkit-background-clip: text;
@@ -313,6 +359,600 @@ li a {
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(228, 61, 52, 0.35);
 }
+
 .nav-cta:hover {
   background-color: #ff4e43;
+}
+
+/* New Homepage Section Styles */
+.hero-section {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 0 5%;
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.car-card {
+  flex: 1;
+  background: transparent;
+  border-radius: 20px;
+  padding: 40px;
+  margin-right: 60px;
+  position: relative;
+}
+
+.lamborghini-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.brand-name {
+  font-size: 14px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.car-image {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.car-icon {
+  font-size: 120px;
+  color: #000;
+}
+
+.car-model {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.content-section {
+  flex: 1;
+  padding: 40px 0;
+}
+
+.section-title {
+  color: #e43d34;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.main-heading {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #cccccc;
+  max-width: 500px;
+}
+
+.quality-section {
+  margin-bottom: 30px;
+}
+
+.quality-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.quality-item .text {
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.quality-item .ref {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.craftsmanship-heading {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.cta-button {
+  background: #e43d34;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.cta-button:hover {
+  background: #ff4e43;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(228, 61, 52, 0.4);
+}
+
+/* New Section: The Art of Motion Styles */
+.motion-section {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 0 5%;
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  gap: 60px;
+}
+
+.content-left {
+  flex: 1;
+  padding: 40px 0;
+}
+
+.motion-subtitle {
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.motion-heading {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  color: white;
+}
+
+.motion-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #cccccc;
+  max-width: 500px;
+}
+
+.small-car-card {
+  width: 400px;
+  height: 280px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.small-car-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.motion-cta {
+  color: #e43d34;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.motion-cta:hover {
+  color: #ff4e43;
+}
+
+.content-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.large-car-photo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* New Section: Redefining the Future Styles */
+.future-section {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 80px 5%;
+}
+
+.future-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.future-left {
+  flex: 1;
+}
+
+.future-right {
+  text-align: right;
+}
+
+.future-subtitle {
+  color: #e43d34;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.future-heading {
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  color: white;
+}
+
+.future-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.car-image-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.black-car-photo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.info-cards-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  background-color: #2a2a2a;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background: #e43d34;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #cccccc;
+}
+
+/* New Section: Explore the Lamb Collection Styles */
+.collection-section {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 80px 5%;
+}
+
+.collection-title {
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 60px;
+  color: white;
+}
+
+.collection-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.collection-card {
+  background-color: #2a2a2a;
+  border-radius: 15px;
+  padding: 30px 25px;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-text {
+  font-size: 18px;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.card-main-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.card-sub-text {
+  font-size: 16px;
+  color: #cccccc;
+  font-weight: 400;
+}
+
+/* New Section: The Lamb Advantage Styles */
+.advantage-section {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  padding: 80px 5%;
+}
+
+.advantage-content {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.car-image-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.silver-car-photo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.content-right {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.advantage-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #e43d34;
+  line-height: 1.1;
+}
+
+.advantage-text {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.advantage-text p {
+  font-size: 16px;
+  line-height: 1.3;
+  margin-bottom: 14px;
+  color: white;
+  max-width: 100%;
+  text-align: left;
+  font-weight: 400;
+  display: block;
+}
+
+.advantage-cta {
+  text-align: left;
+}
+
+.cta-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.discover-button {
+  background: #e43d34;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.discover-button:hover {
+  background: #ff4e43;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(228, 61, 52, 0.4);
+}
+
+/* Footer Section Styles */
+.footer-section {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding: 60px 5% 30px;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  gap: 60px;
+}
+
+.company-info {
+  flex: 2;
+}
+
+.company-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #333;
+  max-width: 500px;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.facebook { background-color: #1877f2; }
+.Instagram { background-color: #e4405f; }
+.whatsapp { background-color: #25d366; }
+.linkedin { background-color: #0077b5; }
+.github { background-color: #000; }
+.gmail { background-color: #ea4335; }
+.tiktok { background-color: #000; }
+
+.footer-nav {
+  flex: 1;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav li {
+  margin-bottom: 20px;
+}
+
+.footer-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #e43d34;
+}
+
+.footer-nav a.active {
+  text-decoration: underline;
+  color: #e43d34;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.copyright p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.card-icon-red {
+  width: 50px;
+  height: 50px;
+  background: #e43d34;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon-logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
 }
