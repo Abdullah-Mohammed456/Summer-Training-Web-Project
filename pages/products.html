@@ -10,15 +10,16 @@
 
 <body>
     <!-- Header -->
-  <div class="products"><img src="/assets/images/background.jpg" alt="">   
-    <header>
+    <div class="products">
+        <img src="../assets/images/background.jpg" alt="">   
+        <header>
             <nav class="navbar">
                 <div class="navdiv">
                     <div class="logo">NetClaks</div>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../pages/about.html" class="active">About</a></li>
-                        <li><a href="../pages/products.html">Products</a></li>
+                        <li><a href="../pages/about.html">About</a></li>
+                        <li><a href="../pages/products.html" class="active">Products</a></li>
                         <li><a href="../pages/contact.html">Contact</a></li>
                         <li><a href="../pages/login&register.html">Login</a></li>
                     </ul>
@@ -26,63 +27,213 @@
                 </div>
             </nav>
         </header>
-  </div>
-  <div class="Container">
-         <!-- FilterationBar -->
-   <div class="FliterationBar">
+    </div>
 
-   </div>
-  <!-- Body -->
-   <div class="GridBox">
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
+    <div class="Container">
+        <!-- Filteration Bar -->
+        <div class="FliterationBar">
+            <div class="filter-section">
+                <h3 class="filter-title">Brand</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="bmw">
+                    <label for="bmw">BMW</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="mercedes">
+                    <label for="mercedes">Mercedes</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="audi">
+                    <label for="audi">Audi</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="porsche">
+                    <label for="porsche">Porsche</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="lamborghini">
+                    <label for="lamborghini">Lamborghini</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="volkswagen">
+                    <label for="volkswagen">Volkswagen</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="range-rover">
+                    <label for="range-rover">Range Rover</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Price Range</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="under50k">
+                    <label for="under50k">Under $50,000</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="50k-100k">
+                    <label for="50k-100k">$50,000 - $100,000</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="100k-150k">
+                    <label for="100k-150k">$100,000 - $150,000</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="over150k">
+                    <label for="over150k">Over $150,000</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3 class="filter-title">Type</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="sedan">
+                    <label for="sedan">Sedan</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="suv">
+                    <label for="suv">SUV</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="sports">
+                    <label for="sports">Sports Car</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="luxury">
+                    <label for="luxury">Luxury</label>
+                </div>
+            </div>
         </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
+
+        <!-- Products Grid -->
+        <div class="GridBox">
+            <div id="filter-status" style="grid-column: 1 / -1; padding: 10px; background: #e8f5e8; border-radius: 8px; margin-bottom: 20px; text-align: center; color: #2d5a2d; font-weight: 600;">
+                Loading filters... Please wait.
+            </div>
+            
+            <div class="Product">
+                <img src="../assets/images/Porsche.jpeg" alt="Porsche 911" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Porsche 911 Carrera</h3>
+                    <p class="product-description">Iconic sports car with legendary performance and timeless design.</p>
+                    <div class="product-price">$150,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/BLACKsports-car.jpg" alt="Black Sports Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Mercedes-AMG C63</h3>
+                    <p class="product-description">Powerful AMG performance with sophisticated design and cutting-edge features.</p>
+                    <div class="product-price">$95,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/blacksportscar.jpg" alt="Black Sports Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">BMW M3 Competition</h3>
+                    <p class="product-description">High-performance luxury sedan with advanced technology and premium comfort features.</p>
+                    <div class="product-price">$85,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/silvar%20sport%20car.jpg" alt="Silver Sports Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Audi RS6 Avant</h3>
+                    <p class="product-description">Ultimate performance wagon combining power, luxury, and practicality.</p>
+                    <div class="product-price">$120,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/graaysportcar.jpg" alt="Gray Sports Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">BMW X5 M</h3>
+                    <p class="product-description">Luxury SUV with M performance and advanced driving dynamics.</p>
+                    <div class="product-price">$110,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/lamb.jpg" alt="Lamborghini" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Lamborghini Huracán</h3>
+                    <p class="product-description">Exotic supercar with breathtaking performance and stunning design.</p>
+                    <div class="product-price">$250,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/Range_Rover_-_New-removebg-preview.png" alt="Range Rover" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Range Rover Sport</h3>
+                    <p class="product-description">Luxury SUV with off-road capability and sophisticated technology.</p>
+                    <div class="product-price">$130,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/A7-removebg-preview.png" alt="Audi A7" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Audi A8 L</h3>
+                    <p class="product-description">Flagship luxury sedan with quattro all-wheel drive and premium features.</p>
+                    <div class="product-price">$130,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/Volkswagen%20Virtus%20GT%20Line%202025_%20The%20Ultimate%20Performance%20Sedan%20Redefining%20Driving%20Pleasure.jpeg" alt="Volkswagen Virtus" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Volkswagen Virtus GT</h3>
+                    <p class="product-description">Performance sedan with modern design and advanced features.</p>
+                    <div class="product-price">$45,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/Vistale_%20Image.jpeg" alt="Luxury Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Mercedes-Benz S-Class</h3>
+                    <p class="product-description">The pinnacle of luxury with innovative technology and unmatched comfort.</p>
+                    <div class="product-price">$180,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/4ce40142-ebc9-4940-9c09-67d4c6fe6af4.jpeg" alt="Sports Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Audi Q8 RS</h3>
+                    <p class="product-description">Sporty luxury SUV with RS performance and sophisticated styling.</p>
+                    <div class="product-price">$125,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
+
+            <div class="Product">
+                <img src="../assets/images/6568ee30-0d8e-4188-a646-946b7eeb5e4a.jpeg" alt="Luxury Car" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Porsche Panamera Turbo</h3>
+                    <p class="product-description">Four-door sports car with exceptional performance and luxury features.</p>
+                    <div class="product-price">$170,000</div>
+                    <button class="product-button">View Details</button>
+                </div>
+            </div>
         </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-         <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-         <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-         <div class="Product">
-            <img src="#" alt="CarPhoto">
-            <p>Description Of Product</p>
-        </div>
-        
-   </div>
-  </div>
-  <!-- Footer -->
-  <!-- Footer Section bebo tell me-->
+    </div>
+
+    <!-- Footer -->
     <footer class="footer-section">
         <div class="footer-content">
             <div class="company-info">
@@ -91,38 +242,37 @@
                     service, and installment facilities.</p>
 
                 <div class="social-media">
-
                     <div class="social-icon facebook">
-                        <img src="/assets/images/facebook.png" alt="Facebook" class="icon-image">
+                        <img src="../assets/images/facebook.png" alt="Facebook" class="icon-image">
                     </div>
                     <div class="social-icon instagram">
-                        <img src="/assets/images/instagram.png" alt="instagram" class="icon-image">
+                        <img src="../assets/images/instagram.png" alt="instagram" class="icon-image">
                     </div>
                     <div class="social-icon whatsapp">
-                        <img src="/assets/images/whatsapp.png" alt="Whatsapp" class="icon-image">
+                        <img src="../assets/images/whatsapp.png" alt="Whatsapp" class="icon-image">
                     </div>
                     <div class="social-icon linkedin">
-                        <img src="/assets/images/linkedin.png" alt="LinkedIn" class="icon-image">
+                        <img src="../assets/images/linkedin.png" alt="LinkedIn" class="icon-image">
                     </div>
                     <div class="social-icon Github">
-                        <img src="/assets/images/github.png" alt="Github" class="icon-image">
+                        <img src="../assets/images/github.png" alt="Github" class="icon-image">
                     </div>
                     <div class="social-icon Gmail">
-                        <img src="/assets/images/gmail.png" alt="Gmail" class="icon-image">
+                        <img src="../assets/images/gmail.png" alt="Gmail" class="icon-image">
                     </div>
                     <div class="social-icon Tiktok">
-                        <img src="/assets/images/tiktok.png" alt="Tiktok" class="icon-image">
+                        <img src="../assets/images/tiktok.png" alt="Tiktok" class="icon-image">
                     </div>
                 </div>
             </div>
 
             <div class="footer-nav">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="/pages/about.html">About</a></li>
-                    <li><a href="/pages/products.html">Products</a></li>
-                    <li><a href="/pages/contact.html">Contact</a></li>
-                    <li><a href="/pages/login&register.html">Login</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/products.html" class="active">Products</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/login&register.html">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -134,4 +284,5 @@
  
 </body>
 <script src="../assets/js/auth-state.js"></script>
+<script src="../assets/js/products.js"></script>
 </html>
