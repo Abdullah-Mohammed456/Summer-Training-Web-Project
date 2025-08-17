@@ -5,12 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
+    <link rel="stylesheet" href="../assets/css/admin-page.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <center>
-        <h1>Sup Admin ur Page will be Here Soon . . . </h1>
-    </center>
+    <div class="page">
+        <div class="side">
+            <span> Admin Panel</span>
+
+          
+                <a href="dashboard.html" target="contentFrame"> <div class="tap">
+                    <i class="fa-solid fa-house-chimney"></i> <span>dashboard</span></div>
+                </a>
+            
+
+         
+                <a href="cars.html" target="contentFrame"> <div class="tap">
+                    <i class="fa-solid fa-car"></i> <span>cars</span></div>
+                </a>
+           
+
+                <a href="order.html" target="contentFrame"> <div class="tap">
+                    <i class="fa-solid fa-sheet-plastic"></i> <span>order</span></div>
+                </a>
+           
+
+        
+                <a href="users.html" target="contentFrame"> <div class="tap">
+                    <i class="fa-solid fa-users"></i> <span>users</span></div>
+                </a>
+          
+        </div>
+
+        <iframe name="contentFrame" src="dashboard.html" class="content"></iframe>
+    </div>
 </body>
 <script type="module" src="../assets/js/auth-state.js"></script>
 
