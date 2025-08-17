@@ -5,7 +5,8 @@
 body {
   height: auto;
   overflow-x: hidden;
-  background-color: #000000;
+  background-color: #1a1a1a;
+;
   margin: 0;
   padding: 0;
 }
@@ -21,12 +22,14 @@ body {
   width: 100%;
   display: block;
   position: absolute;
-  height: 640px;
+  height: 100%;
 }
 
 .img1 {
   height: auto;
   overflow: hidden;
+   opacity:.6 ;
+
 }
 
 .text0 {
@@ -202,7 +205,10 @@ i:hover {
 
 .third {
   position: relative;
-  background-color: #eeeaea;
+  background-color: #1a1a1a;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+;
   width: 100%;
   height: 400px;
 }
@@ -211,16 +217,18 @@ i:hover {
   position: absolute;
   top: 30px;
   right: 40px;
-  background-color: rgb(95, 123, 174);
-  border-radius: 60px;
-  width: 100px;
-  height: 30px;
-  color: #ffffff;
+  background-color:#2a2a2a;
+  width: 120px;
+  height:40px;
+  color: white;
   border: transparent;
+  border-radius: 20px;
+  
 }
 
 .but1:hover {
-  background-color: rgba(100, 129, 183, 0.802);
+  background-color:red;
+  transition-duration: 1s;
 }
 
 .vehicles {
@@ -235,7 +243,6 @@ i:hover {
   position: relative;
   width: 210px;
   height: 240px;
-  background-color: white;
 }
 
 .vehicles div img {
@@ -245,19 +252,11 @@ i:hover {
   margin-top: -10px;
 }
 
-.vehicles div {
-  position: relative;
-  transition: 0.3s;
-}
-
-.vehicles div:hover {
-  background-color: rgba(100, 129, 183, 0.802);
-}
 
 .but2 {
   position: absolute;
-  background-color: white;
-  border: 2px solid rgb(213, 204, 204);
+  background-color: #2a2a2a;
+  color: white;
   border-radius: 20px;
   width: 100px;
   height: 30px;
@@ -265,10 +264,12 @@ i:hover {
   right: 5px;
   display: grid;
   place-content: center;
+  border: none;
 }
 
 .but2:hover {
-  background-color: #e7dfdf;
+  background-color: red;
+  transition-duration: 1s;
 }
 
 .vehicles .footer {
@@ -276,7 +277,7 @@ i:hover {
   top: 100%;
   transform: translateY(-35px);
   left: 5px;
-  color: #000000;
+  color: white;
   font-size: 15px;
 }
 
@@ -292,7 +293,7 @@ i:hover {
   position: absolute;
   top: 15px;
   left: 20px;
-  color: rgb(68, 65, 65);
+  color: white;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: 900;
@@ -300,10 +301,11 @@ i:hover {
 
 .img1 #homePage {
   position: absolute;
-  width: 800px;
+  width: auto;
   right: 0px;
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
+
 }
 
 * {
@@ -612,7 +614,6 @@ li a {
 .future-heading {
   font-size: 48px;
   font-weight: 700;
-  font-style: italic;
   line-height: 1.2;
   color: white;
 }
@@ -692,7 +693,6 @@ li a {
 .collection-title {
   font-size: 48px;
   font-weight: 700;
-  font-style: italic;
   text-align: center;
   margin-bottom: 60px;
   color: white;
@@ -721,7 +721,7 @@ li a {
 
 .card-text {
   font-size: 18px;
-  color: #cccccc;
+  color: white;
   font-weight: 500;
 }
 
@@ -829,8 +829,8 @@ li a {
 
 /* Footer Section Styles */
 .footer-section {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #2a2a2a;
+  color: hsl(0, 0%, 72%);
   font-family: 'Arial', sans-serif;
   padding: 60px 5% 30px;
   margin: 0;
@@ -853,7 +853,7 @@ li a {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 30px;
-  color: #333;
+  color: hsl(0, 0%, 72%);
   max-width: 500px;
 }
 
@@ -891,7 +891,7 @@ li a {
 .Instagram { background-color: #e4405f; }
 .whatsapp { background-color: #25d366; }
 .linkedin { background-color: #0077b5; }
-.github { background-color: #000; }
+.github { background-color: hsl(0, 0%, 72%);}
 .gmail { background-color: #ea4335; }
 .tiktok { background-color: #000; }
 
@@ -955,4 +955,9 @@ li a {
   font-size: 24px;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
+}
+#Trend{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+    color: white;
 }
