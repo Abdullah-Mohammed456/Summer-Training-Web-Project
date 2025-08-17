@@ -480,6 +480,7 @@ li a {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 30px;
+  visibility: hidden;
 }
 
 .cta-button:hover {
@@ -800,6 +801,7 @@ li a {
   font-weight: 500;
   color: white;
   margin-bottom: 12px;
+  visibility: hidden;
 }
 
 .discover-button {
@@ -812,6 +814,7 @@ li a {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  visibility: hidden;
 }
 
 .discover-button:hover {
