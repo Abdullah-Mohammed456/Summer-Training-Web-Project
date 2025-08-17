@@ -305,6 +305,116 @@
 
 </body>
 <script type="module" src="/assets/js/auth-state.js"></script>
-
+<script>
+    // Auto-play video intro and navigate to home page
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('.intro-video');
+        const introOverlay = document.querySelector('.intro-overlay');
+        
+        if (video) {
+            // Force video to load and play
+            video.load();
+            
+            // Try to play video with sound automatically
+            function playVideo() {
+                video.play().then(function() {
+                    console.log('✅ Video playing with sound automatically');
+                }).catch(function(error) {
+                    console.log('❌ Autoplay with sound failed, trying muted first');
+                    // Try muted first, then unmute on user interaction
+                    video.muted = true;
+                    video.play().then(function() {
+                        console.log('✅ Video playing muted, will unmute on interaction');
+                        // Unmute on first user interaction
+                        document.addEventListener('click', function unmuteOnClick() {
+                            video.muted = false;
+                            console.log('🔊 Sound unmuted');
+                            document.removeEventListener('click', unmuteOnClick);
+                        }, { once: true });
+                    }).catch(function(error2) {
+                        console.log('❌ Even muted autoplay failed, waiting for user interaction');
+                        // If even muted fails, wait for user interaction
+                        document.addEventListener('click', function playOnClick() {
+                            video.muted = false;
+                            video.play();
+                            document.removeEventListener('click', playOnClick);
+                        }, { once: true });
+                    });
+                });
+            }
+            
+            // Start playing when video is ready
+            video.addEventListener('canplay', function() {
+                console.log('🎬 Video ready to play');
+                playVideo();
+            });
+            
+            // Hide intro and show home page when video ends
+            video.addEventListener('ended', function() {
+                console.log('🏠 Video ended, showing home page');
+                introOverlay.style.opacity = '0';
+                introOverlay.style.visibility = 'hidden';
+                document.body.classList.add('intro-completed');
+            });
+            
+            // Click anywhere to skip intro and go to home page
+            introOverlay.addEventListener('click', function() {
+                console.log('⏭️ Intro skipped, showing home page');
+                video.pause();
+                introOverlay.style.opacity = '0';
+                introOverlay.style.visibility = 'hidden';
+                document.body.classList.add('intro-completed');
+            });
+            
+            // Keyboard support (Space/Enter to skip)
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space' || e.code === 'Enter') {
+                    e.preventDefault();
+                    introOverlay.click();
+                }
+            });
+            
+            // Fallback: If video doesn't load, show home page after 3 seconds
+            setTimeout(function() {
+                if (video.readyState === 0) {
+                    console.log('⚠️ Video not loaded, showing home page');
+                    introOverlay.style.opacity = '0';
+                    introOverlay.style.visibility = 'hidden';
+                    document.body.classList.add('intro-completed');
+                }
+            }, 3000);
+            
+            // Additional fallback: Force play after 1 second
+            setTimeout(function() {
+                if (video.paused) {
+                    console.log('🔄 Forcing video play');
+                    playVideo();
+                }
+            }, 1000);
+            
+            // Sound toggle button
+            const soundToggle = document.getElementById('soundToggle');
+            if (soundToggle) {
+                soundToggle.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent intro skip
+                    if (video.muted) {
+                        video.muted = false;
+                        soundToggle.textContent = '🔊';
+                        console.log('🔊 Sound turned on');
+                    } else {
+                        video.muted = true;
+                        soundToggle.textContent = '🔇';
+                        console.log('🔇 Sound turned off');
+                    }
+                });
+                
+                // Update button icon based on video state
+                video.addEventListener('volumechange', function() {
+                    soundToggle.textContent = video.muted ? '🔇' : '🔊';
+                });
+            }
+        }
+    });
+</script>
 
 </html>

@@ -6,7 +6,6 @@ body {
   height: auto;
   overflow-x: hidden;
   background-color: #1a1a1a;
-;
   margin: 0;
   padding: 0;
 }
@@ -28,8 +27,6 @@ body {
 .img1 {
   height: auto;
   overflow: hidden;
-   opacity:.6 ;
-
 }
 
 .text0 {
@@ -117,8 +114,8 @@ body {
   font-weight: 500;
 }
 
-.grid1>div:hover,
-.grid2>div:hover {
+.grid1 > div:hover,
+.grid2 > div:hover {
   text-decoration: underline;
   transition: 0.2s;
 }
@@ -152,7 +149,7 @@ p {
   animation-play-state: paused;
 }
 
-.cars-track>div {
+.cars-track > div {
   position: relative;
   width: 190px;
   height: 220px;
@@ -160,7 +157,7 @@ p {
   transition: 0.3s;
 }
 
-.cars-track>div:hover {
+.cars-track > div:hover {
   transform: scale(1.02);
 }
 
@@ -208,7 +205,6 @@ i:hover {
   background-color: #1a1a1a;
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
-;
   width: 100%;
   height: 400px;
 }
@@ -217,17 +213,16 @@ i:hover {
   position: absolute;
   top: 30px;
   right: 40px;
-  background-color:#2a2a2a;
+  background-color: #2a2a2a;
   width: 120px;
-  height:40px;
+  height: 40px;
   color: white;
   border: transparent;
   border-radius: 20px;
-  
 }
 
 .but1:hover {
-  background-color:red;
+  background-color: red;
   transition-duration: 1s;
 }
 
@@ -251,7 +246,6 @@ i:hover {
   top: 40%;
   margin-top: -10px;
 }
-
 
 .but2 {
   position: absolute;
@@ -301,11 +295,10 @@ i:hover {
 
 .img1 #homePage {
   position: absolute;
-  width: auto;
+  width: 100%;
   right: 0px;
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
-
 }
 
 * {
@@ -374,7 +367,7 @@ li a {
   padding: 0 5%;
   background-color: #1a1a1a;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .car-card {
@@ -503,7 +496,7 @@ li a {
   padding: 0 5%;
   background-color: #1a1a1a;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   gap: 60px;
 }
 
@@ -583,7 +576,7 @@ li a {
 .future-section {
   background-color: #1a1a1a;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 80px 5%;
 }
 
@@ -686,7 +679,7 @@ li a {
 .collection-section {
   background-color: #1a1a1a;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 80px 5%;
 }
 
@@ -742,7 +735,7 @@ li a {
 .advantage-section {
   background-color: #1a1a1a;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 80px 5%;
 }
 
@@ -831,7 +824,7 @@ li a {
 .footer-section {
   background-color: #2a2a2a;
   color: hsl(0, 0%, 72%);
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 60px 5% 30px;
   margin: 0;
   margin-bottom: 0;
@@ -887,13 +880,27 @@ li a {
   transform: scale(1.1);
 }
 
-.facebook { background-color: #1877f2; }
-.Instagram { background-color: #e4405f; }
-.whatsapp { background-color: #25d366; }
-.linkedin { background-color: #0077b5; }
-.github { background-color: hsl(0, 0%, 72%);}
-.gmail { background-color: #ea4335; }
-.tiktok { background-color: #000; }
+.facebook {
+  background-color: #1877f2;
+}
+.Instagram {
+  background-color: #e4405f;
+}
+.whatsapp {
+  background-color: #25d366;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.github {
+  background-color: hsl(0, 0%, 72%);
+}
+.gmail {
+  background-color: #ea4335;
+}
+.tiktok {
+  background-color: #000;
+}
 
 .footer-nav {
   flex: 1;
@@ -954,10 +961,10 @@ li a {
   color: white;
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
-#Trend{
+#Trend {
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
-    color: white;
+  color: white;
 }
