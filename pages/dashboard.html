@@ -18,18 +18,18 @@
 
       
       <div class="kpis">
-        <div class="card"><h3>Total Cars Listed</h3><div class="big" id="kpi-listed">—</div></div>
-        <div class="card"><h3>Cars Sold</h3><div class="big" id="kpi-sold">—</div></div>
-        <div class="card"><h3>Cars Available</h3><div class="big" id="kpi-available">—</div></div>
+        <div class="card"><h3>Total Cars Listed</h3><div class="big" id="kpi-listed">13</div></div>
+        <div class="card"><h3>Cars Sold</h3><div class="big" id="kpi-sold">3</div></div>
+        <div class="card"><h3>Cars Available</h3><div class="big" id="kpi-available">10</div></div>
       </div>
 
       
       <div class="quick">
         <div class="card stat">
-          <h3>Daily Sales</h3><div class="value" id="daily-sales">$—</div>
+          <h3>Daily Sales</h3><div class="value" id="daily-sales">$5000</div>
         </div>
         <div class="card stat">
-          <h3>Monthly Sales</h3><div class="value" id="monthly-sales">$—</div>
+          <h3>Monthly Sales</h3><div class="value" id="monthly-sales">$180000</div>
         </div>
       </div>
     </div>
@@ -38,16 +38,16 @@
     <div class="section-title">Most Viewed Cars</div>
     <div class="cars">
       <div class="car">
-        <div class="img">Model X</div>
-        <h4>Model X</h4><p>Brand A</p>
+        <div class="img"><img src="/assets/images/M5.jpeg" alt="BMW" class="img"></div>
+        <h4>BMW</h4><p>M5</p>
       </div>
       <div class="car">
-        <div class="img">Model Y</div>
-        <h4>Model Y</h4><p>Brand B</p>
+        <div class="img"><img src="/assets/images/G-Class.jpeg" alt="Mercedes" class="img"></div>
+        <h4>Mercedes</h4><p>G-Class</p>
       </div>
-      <div class="car">
-        <div class="img">Model Z</div>
-        <h4>Model Z</h4><p>Brand C</p>
+      <div class="car"> 
+        <div class="img"><img src="/assets/images/avantador.jpg" alt="Lamborghini" class="img"></div>
+        <h4>Lamborghini</h4><p>avantador</p>
       </div>
     </div>
 
@@ -55,65 +55,55 @@
     <div class="card chart-card">
       <div class="chart-head">
         <div class="left">
-          <h3 id="chart-total">$0</h3><span>This Month</span>
+          <h3 id="chart-total">$178500</h3><span>This Month</span>
         </div>
         <div class="btns">
-          <button id="btn-random">Randomize</button>
           <button id="btn-reset">Reset</button>
+          <button id ="btn-random">Random</button>
         </div>
       </div>
       <canvas id="salesChart" height="120"></canvas>
     </div>
   </div>
-
-  <script>
-    const baseData = [12000, 13500, 15000, 14000, 16000, 15500, 14800, 17000, 16500, 18000, 17500, 19500];
-    const months   = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-    const fmt = n => "$" + n.toLocaleString("en-US");
-    const sum = arr => arr.reduce((a,b)=>a+b,0);
-
-    function updateKPIs(){
-      const listed = 250;
-      const sold   = 120;
-      const available = listed - Math.min(sold, listed);
-      document.getElementById("kpi-listed").textContent = listed;
-      document.getElementById("kpi-sold").textContent = sold;
-      document.getElementById("kpi-available").textContent = available;
-
-      const todaySales = Math.round((Math.random()*2500)+3500);
-      document.getElementById("daily-sales").textContent = fmt(todaySales);
-    }
-
-    let chart, data = [...baseData];
-    function buildChart(){
-      const ctx = document.getElementById("salesChart");
-      chart = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: months,
-          datasets: [{
-            label: "Sales",
-            data,
-            tension: 0.35,
-            fill: false
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display:false }, tooltip: { mode:"index", intersect:false }},
-          interaction: { mode:"nearest", intersect:false },
-          scales: {
-            x: { grid:{ color:"rgba(255,255,255,.05)"}},
-            y: { grid:{ color:"rgba(255,255,255,.06)"}, ticks:{ callback:v=>"$"+v/1000+"k"}}
-          }
+<script>
+  const reset=document.getElementById('btn-reset');
+  const random=document.getElementById('btn-random');
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  const salesChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      datasets: [{
+        label: 'Sales',
+        data: [12000, 15000, 13000, 17000, 16000, 18000, 20000],
+        borderColor: '#4CAF50',
+        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+        fill: true,
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
         }
-      });
-      updateTotals();
+      }
     }
-
-    function updateTotals(){
-      const monthlyTotal = sum(data);
-      document.getElementById("monthly-sales").textContent = fmt(monthlyTotal);
-      document.getElementById("chart-total").textContent   = fmt(monthlyTotal);
-    }
+  });
+  random.addEventListener('click', () => {
+    const randomValue = Math.floor(Math.random() * 100000);
+    document.getElementById('kpi-listed').innerText = randomValue;
+    document.getElementById('kpi-sold').innerText = Math.floor(randomValue / 10);
+    document.getElementById('kpi-available').innerText = randomValue - Math.floor(randomValue / 10);
+    document.getElementById('daily-sales').innerText = `$${Math.floor(randomValue / 20)}`;
+    document.getElementById('monthly-sales').innerText = `$${randomValue * 6}`;
+    document.getElementById('chart-total').innerText = `$${randomValue * 2}`;
+  });
+  reset.addEventListener('click', () => {
+    document.getElementById('kpi-listed').innerText = '0';
+    document.getElementById('kpi-sold').innerText = '0';
+    document.getElementById('kpi-available').innerText = '0';
+    document.getElementById('daily-sales').innerText = '$0';
+    document.getElementById('monthly-sales').innerText = '$0';
+    document.getElementById('chart-total').innerText = '$0';})
+</script>

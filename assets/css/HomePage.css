@@ -295,7 +295,7 @@ i:hover {
 
 .img1 #homePage {
   position: absolute;
-  width: 100%;
+  width:900px;
   right: 0px;
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
