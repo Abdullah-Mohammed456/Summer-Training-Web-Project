@@ -53,6 +53,7 @@ li a {
     border-radius: 4px;
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(228, 61, 52, 0.35);
+    visibility: hidden;
 }
 .nav-cta:hover { background-color: #ff4e43; }
 

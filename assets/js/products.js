@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const statusElement = document.getElementById('filter-status');
     if (statusElement) {
         statusElement.textContent = 'Welcome, you can choose what you want.';
-        statusElement.style.background = '#e8f5e8';
+        statusElement.style.background = '#b4b8b4ff';
         statusElement.style.color = '#2d5a2d';
     }
 
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (gridBox) {
                 const countElement = document.createElement('div');
                 countElement.id = 'results-count';
-                countElement.style.cssText = 'grid-column: 1 / -1; padding: 10px 0; font-weight: 600; color: #333; border-bottom: 1px solid #e9ecef; margin-bottom: 15px;';
+                countElement.style.cssText = 'grid-column: 1 / -1; padding: 10px 0; font-weight: 600; color: white ; border-bottom: 1px solid #e9ecef; margin-bottom: 15px;';
                 gridBox.insertBefore(countElement, gridBox.firstChild);
             }
         }
