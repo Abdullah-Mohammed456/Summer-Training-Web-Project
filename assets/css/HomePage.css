@@ -10,6 +10,60 @@ body {
   padding: 0;
 }
 
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 50% -10%, rgba(228,61,52,0.25), transparent 60%), #000;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  transition: 3s;
+}
+
+.intro-overlay .intro-content {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  transform: translateY(10px);
+  animation: introRise 600ms ease forwards 200ms;
+}
+
+.intro-overlay .intro-brand {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 54px;
+  background: linear-gradient(90deg, #fff, #ffb3ad 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-overlay .intro-tagline {
+  color: #d1d1d1;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.intro-overlay .intro-skip-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.8);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+}
+
+body.intro-completed .intro-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes introRise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
 .first {
   position: relative;
   top: 0;
@@ -295,7 +349,7 @@ i:hover {
 
 .img1 #homePage {
   position: absolute;
-  width:900px;
+  width:100%;
   right: 0px;
   image-rendering: smooth;
   /* filter: blur(0.4px) contrast(110%) brightness(105%); */
@@ -335,6 +389,8 @@ li {
   display: inline-block;
 }
 
+
+
 li a {
   background: linear-gradient(to left, white -50%, red 170%);
   -webkit-background-clip: text;
@@ -357,6 +413,17 @@ li a {
 
 .nav-cta:hover {
   background-color: #ff4e43;
+}
+
+/* Navbar active state */
+/* Navbar unified pill active state */
+.navbar ul li a.active {
+  -webkit-text-fill-color: initial;
+  color: #ffffff;
+  background: rgba(228, 61, 52, 0.22);
+  border: 1px solid rgba(228, 61, 52, 0.45);
+  border-radius: 999px;
+  padding: 6px 12px;
 }
 
 /* New Homepage Section Styles */

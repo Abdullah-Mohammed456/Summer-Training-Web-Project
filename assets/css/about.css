@@ -46,6 +46,14 @@ li a {
     margin-right: 25px;
     padding-right: 25px;
 }
+.navbar ul li a.active {
+    -webkit-text-fill-color: initial;
+    color: #ffffff;
+    background: rgba(228, 61, 52, 0.22);
+    border: 1px solid rgba(228, 61, 52, 0.45);
+    border-radius: 999px;
+    padding: 6px 12px;
+}
 .nav-cta {
     background-color: #e43d34;
     color: #ffffff;
