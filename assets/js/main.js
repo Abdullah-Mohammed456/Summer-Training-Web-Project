@@ -40,4 +40,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-
+  document.addEventListener("DOMContentLoaded", function () {
+    const introOverlay = document.querySelector(".intro-overlay");
+    if (!introOverlay) return;
+    const finishIntro = function () {
+      introOverlay.style.opacity = "0";
+      introOverlay.style.visibility = "hidden";
+      document.body.classList.add("intro-completed");
+    };
+    setTimeout(finishIntro, 1600);
+    introOverlay.addEventListener("click", finishIntro, { once: true });
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Space" || e.code === "Enter") {
+        e.preventDefault();
+        finishIntro();
+      }
+    });
+  });
