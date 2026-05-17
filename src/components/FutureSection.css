@@ -1,0 +1,98 @@
+.future-section {
+  padding: 80px 5%;
+  background-color: var(--bg-darker);
+}
+
+.future-header {
+  margin-bottom: 60px;
+}
+
+.future-subtitle {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.future-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+.future-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.car-image-left {
+  flex: 1;
+}
+
+.black-car-photo {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.black-car-photo:hover {
+  transform: translateY(-10px);
+}
+
+.info-cards-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+  transform: translateX(-10px);
+  box-shadow: 0 10px 30px rgba(228, 61, 52, 0.1);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lucide-icon {
+  color: white;
+  width: 24px;
+  height: 24px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .future-content {
+    flex-direction: column;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-5px);
+  }
+}

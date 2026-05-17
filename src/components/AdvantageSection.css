@@ -1,0 +1,44 @@
+.advantage-section {
+  padding: 80px 5%;
+  background-color: var(--bg-darker);
+}
+
+.advantage-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.car-image-left {
+  flex: 1;
+}
+
+.silver-car-photo {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.content-right {
+  flex: 1;
+}
+
+.advantage-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+.advantage-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .advantage-content {
+    flex-direction: column-reverse;
+  }
+}

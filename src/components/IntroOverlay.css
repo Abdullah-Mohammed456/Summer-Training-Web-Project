@@ -1,0 +1,55 @@
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.intro-overlay.completed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-content {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  transform: translateY(20px);
+  animation: introRise 0.8s ease forwards 0.2s;
+  opacity: 0;
+}
+
+.intro-brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: clamp(3rem, 6vw, 4rem);
+  background: linear-gradient(90deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-tagline {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.intro-skip-hint {
+  position: absolute;
+  bottom: 30px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+@keyframes introRise {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

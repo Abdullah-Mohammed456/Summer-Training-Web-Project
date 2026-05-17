@@ -1,0 +1,50 @@
+.collection-section {
+  padding: 80px 5%;
+  background-color: var(--bg-dark);
+}
+
+.collection-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.collection-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.collection-card {
+  border-radius: 16px;
+  padding: 40px 30px;
+  min-width: 280px;
+  flex: 1;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.collection-card:hover {
+  transform: translateY(-10px);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.collection-card:hover .card-sub-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card-main-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-sub-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}

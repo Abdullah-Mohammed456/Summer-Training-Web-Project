@@ -1,0 +1,99 @@
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Shift background to the right (80%) so the car moves left on screen */
+  background: url('/images/background.jpg') no-repeat 80% center/cover;
+}
+
+/* Fallback gradient if image fails */
+.hero-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15,15,17,0.9) 0%, rgba(15,15,17,0.2) 100%);
+  z-index: 2; /* Gradient over the car to make text readable */
+  pointer-events: none;
+}
+
+.hero-car-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+  /* Must perfectly match background-position so they combine flawlessly */
+  object-position: 80% center; 
+  pointer-events: none;
+  animation: fadeInCar 1.5s ease-out forwards;
+  opacity: 0;
+  
+  /* Enhancing sharpness without altering color (which would expose the seam) */
+  image-rendering: high-quality;
+}
+
+@keyframes fadeInCar {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #ffffff, #d1d1d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-muted);
+  max-width: 600px;
+  animation: slideUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  /* No specific adjustments needed if object-fit cover handles it */
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Space for navbar */
+  }
+}
