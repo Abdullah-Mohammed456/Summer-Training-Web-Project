@@ -18,8 +18,14 @@ export default defineConfig([
       },
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      'react-hooks': {
+        meta: reactHooks.meta,
+        rules: reactHooks.rules,
+      },
+      'react-refresh': {
+        meta: reactRefresh.meta,
+        rules: reactRefresh.rules,
+      },
     },
     rules: {
       ...reactHooks.configs.flat.recommended.rules,

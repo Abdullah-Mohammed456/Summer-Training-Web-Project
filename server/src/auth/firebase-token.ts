@@ -36,7 +36,10 @@ interface CertificateCache {
   expiresAt: number;
 }
 
+const unknownKidRefreshCooldownMs = 60_000;
 let certificateCache: CertificateCache | undefined;
+let certificateFetchInFlight: Promise<Record<string, string>> | undefined;
+let lastUnknownKidRefreshAt = 0;
 
 const decodeJsonSegment = (segment: string): unknown => {
   try {
@@ -46,11 +49,7 @@ const decodeJsonSegment = (segment: string): unknown => {
   }
 };
 
-const getCertificates = async (refresh = false): Promise<Record<string, string>> => {
-  if (!refresh && certificateCache && certificateCache.expiresAt > Date.now()) {
-    return certificateCache.certificates;
-  }
-
+const fetchCertificates = async (): Promise<Record<string, string>> => {
   let response: Response;
   try {
     response = await fetch(certificateUrl, { signal: AbortSignal.timeout(5_000) });
@@ -83,6 +82,38 @@ const getCertificates = async (refresh = false): Promise<Record<string, string>>
   };
 
   return certificateCache.certificates;
+};
+
+const getCertificates = async (refreshForUnknownKid = false): Promise<Record<string, string>> => {
+  const now = Date.now();
+  if (!refreshForUnknownKid && certificateCache && certificateCache.expiresAt > now) {
+    return certificateCache.certificates;
+  }
+
+  if (certificateFetchInFlight) {
+    return certificateFetchInFlight;
+  }
+
+  if (refreshForUnknownKid && now - lastUnknownKidRefreshAt < unknownKidRefreshCooldownMs) {
+    if (certificateCache && certificateCache.expiresAt > now) {
+      return certificateCache.certificates;
+    }
+    throw new HttpError(503, 'Authentication service is temporarily unavailable.');
+  }
+
+  if (refreshForUnknownKid) {
+    lastUnknownKidRefreshAt = now;
+  }
+
+  const pendingFetch = fetchCertificates();
+  certificateFetchInFlight = pendingFetch;
+  try {
+    return await pendingFetch;
+  } finally {
+    if (certificateFetchInFlight === pendingFetch) {
+      certificateFetchInFlight = undefined;
+    }
+  }
 };
 
 export const verifyFirebaseIdToken = async (token: string): Promise<FirebaseIdentity> => {
