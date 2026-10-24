@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import PasswordInput from '../components/PasswordInput';
 import { ApiError } from '../lib/api';
 import { useAuth } from '../lib/auth-context';
 import './Login.css';
@@ -68,12 +69,16 @@ const Login = () => {
         <div className="auth-card glass">
           <div className="auth-tabs">
             <button 
+              type="button"
+              aria-pressed={activeTab === 'login'}
               className={`auth-tab ${activeTab === 'login' ? 'active' : ''}`} 
               onClick={() => { setActiveTab('login'); setError(''); }}
             >
               Login
             </button>
             <button 
+              type="button"
+              aria-pressed={activeTab === 'register'}
               className={`auth-tab ${activeTab === 'register' ? 'active' : ''}`} 
               onClick={() => { setActiveTab('register'); setError(''); }}
             >
@@ -82,20 +87,20 @@ const Login = () => {
           </div>
 
           {activeTab === 'login' && (
-            <form className="auth-form animate-fade-in" onSubmit={handleLogin}>
+            <form className="auth-form animate-fade-in" onSubmit={handleLogin} aria-busy={loading}>
               <h2>Welcome Back</h2>
               <p>Enter your details to access your account.</p>
               
-              {error && <div className="auth-error" style={{color: '#ff4d4f', marginBottom: '15px'}}>{error}</div>}
+              {error && <div className="auth-error" role="alert">{error}</div>}
 
               <div className="form-group">
                 <label htmlFor="login-email">Email</label>
-                <input type="email" id="login-email" value={email} onChange={e => setEmail(e.target.value)} placeholder="name@example.com" required />
+                <input type="email" id="login-email" name="email" autoComplete="username" spellCheck={false} value={email} onChange={e => setEmail(e.target.value)} placeholder="name@example.com" required />
               </div>
               
               <div className="form-group">
                 <label htmlFor="login-password">Password</label>
-                <input type="password" id="login-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" maxLength={128} required />
+                <PasswordInput id="login-password" name="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" maxLength={128} required />
               </div>
               
               <button type="submit" className="auth-btn" disabled={loading}>
@@ -105,25 +110,25 @@ const Login = () => {
           )}
           
           {activeTab === 'register' && (
-            <form className="auth-form animate-fade-in" onSubmit={handleRegister}>
+            <form className="auth-form animate-fade-in" onSubmit={handleRegister} aria-busy={loading}>
               <h2>Create Account</h2>
               <p>Join NetClaks today to start your journey.</p>
 
-              {error && <div className="auth-error" style={{color: '#ff4d4f', marginBottom: '15px'}}>{error}</div>}
+              {error && <div className="auth-error" role="alert">{error}</div>}
               
               <div className="form-group">
                 <label htmlFor="reg-name">Full Name</label>
-                <input type="text" id="reg-name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" maxLength={120} required />
+                <input type="text" id="reg-name" name="name" autoComplete="name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" maxLength={120} required />
               </div>
 
               <div className="form-group">
                 <label htmlFor="reg-email">Email</label>
-                <input type="email" id="reg-email" value={email} onChange={e => setEmail(e.target.value)} placeholder="name@example.com" required />
+                <input type="email" id="reg-email" name="email" autoComplete="email" spellCheck={false} value={email} onChange={e => setEmail(e.target.value)} placeholder="name@example.com" required />
               </div>
               
               <div className="form-group">
                 <label htmlFor="reg-password">Password</label>
-                <input type="password" id="reg-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" minLength={12} maxLength={128} required />
+                <PasswordInput id="reg-password" name="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" minLength={12} maxLength={128} required />
               </div>
               
               <button type="submit" className="auth-btn" disabled={loading}>

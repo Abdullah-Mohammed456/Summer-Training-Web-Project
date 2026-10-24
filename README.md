@@ -127,7 +127,7 @@ Do not grant roles from frontend code. Existing accounts do not migrate; users m
 
 1. Import this repository into Vercel and keep the project root at the repository root.
 2. Use the Vite framework preset, Node.js 24.x, `npm run build:frontend` as the build command, and `dist` as the output directory. The frontend-specific command type-checks the browser app and builds its static files without compiling the Express API.
-3. No environment variables are required in Vercel. The `/api` rewrite in `vercel.json` proxies requests to `https://netclaks-api.onrender.com`.
+3. No environment variables are required in Vercel. The `/api` rewrite in `vercel.json` proxies requests to `https://netclacks.onrender.com`.
 4. Deploy and note the exact production origin, for example `https://your-project.vercel.app`. Sign-in and registration work after the Render API is deployed and its CORS origin is set.
 
 If the Render service uses a different origin, update the `/api` rewrite destination in `vercel.json`.

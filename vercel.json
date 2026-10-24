@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://netclaks-api.onrender.com/api/:path*"
+      "destination": "https://netclacks.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
