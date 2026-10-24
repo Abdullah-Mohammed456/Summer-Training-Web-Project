@@ -6,7 +6,7 @@ Thank you for contributing to NetClaks.
 
 1. Create a focused branch from the current default branch.
 2. Use Node.js 24.x and npm, then run `npm ci`.
-3. Copy `.env.example` to `.env` and configure Firebase and database values locally. Never commit `.env` files.
+3. Copy `.env.example` to `.env` and configure the local database values. Never commit `.env` files.
 4. Run the frontend and API in separate terminals with `npm run dev` and `npm run dev:api`.
 5. Before opening a pull request, run:
 

@@ -1,6 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
 import { getAdminUsers } from '../../../src/lib/api';
-import { auth } from '../../../src/firebase';
 
 const tbody = document.getElementById('users-tbody');
 
@@ -14,15 +12,9 @@ const appendStatusRow = (message: string): void => {
   tbody.replaceChildren(row);
 };
 
-onAuthStateChanged(auth, (user) => {
-  if (!tbody) return;
-  if (!user) {
-    appendStatusRow('Sign in with an administrator account to view users.');
-    return;
-  }
-
+if (tbody) {
   appendStatusRow('Loading…');
-  void getAdminUsers(user)
+  void getAdminUsers()
     .then((users) => {
       const rows = users.map((profile) => {
         const row = document.createElement('tr');
@@ -43,4 +35,4 @@ onAuthStateChanged(auth, (user) => {
       if (rows.length === 0) appendStatusRow('No users found.');
     })
     .catch(() => appendStatusRow('Unable to load users.'));
-});
+}

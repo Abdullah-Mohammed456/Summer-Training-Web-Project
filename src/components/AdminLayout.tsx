@@ -1,14 +1,14 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
-import { signOut } from 'firebase/auth';
+import { useAuth } from '../lib/auth-context';
 import { FaHome, FaCar, FaShoppingCart, FaUsers, FaSignOutAlt } from 'react-icons/fa';
 import './AdminLayout.css';
 
 const AdminLayout = () => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleLogout = async () => {
-    await signOut(auth);
+    await logout();
     navigate('/login');
   };
 

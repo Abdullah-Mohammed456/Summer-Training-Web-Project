@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['dist', 'coverage']),
+  globalIgnores(['dist', 'server/dist', 'coverage']),
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -19,11 +19,11 @@ export default defineConfig([
     },
     plugins: {
       'react-hooks': {
-        meta: reactHooks.meta,
+        meta: { name: 'eslint-plugin-react-hooks' },
         rules: reactHooks.rules,
       },
       'react-refresh': {
-        meta: reactRefresh.meta,
+        meta: { name: 'eslint-plugin-react-refresh' },
         rules: reactRefresh.rules,
       },
     },

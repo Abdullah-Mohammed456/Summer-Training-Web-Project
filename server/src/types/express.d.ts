@@ -1,9 +1,9 @@
-import type { FirebaseIdentity } from '../auth/firebase-token.ts';
+import type { AuthIdentity } from '../auth/session.ts';
 
 declare global {
   namespace Express {
     interface Request {
-      identity?: FirebaseIdentity;
+      identity?: AuthIdentity;
     }
   }
 }

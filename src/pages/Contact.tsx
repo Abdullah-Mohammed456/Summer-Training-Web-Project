@@ -21,7 +21,7 @@ const Contact = () => {
     setStatus({ type: '', text: '' });
 
     try {
-      // Simulating a network request instead of hitting Firebase to avoid security rule permission errors
+      // Simulating a network request for this demonstration contact form.
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setStatus({ type: 'success', text: 'Your message has been sent successfully! We will get back to you soon.' });

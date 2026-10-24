@@ -16,7 +16,5 @@ services:
         sync: false
       - key: DATABASE_SSL
         value: "true"
-      - key: FIREBASE_PROJECT_ID
-        sync: false
       - key: CORS_ALLOWED_ORIGINS
         sync: false

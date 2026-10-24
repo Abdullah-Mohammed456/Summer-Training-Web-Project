@@ -24,7 +24,8 @@ app.use((request, response, next) => {
     response.setHeader('Vary', 'Origin');
   }
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  response.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  response.setHeader('Access-Control-Allow-Credentials', 'true');
   response.setHeader('Access-Control-Max-Age', '600');
 
   if (request.method === 'OPTIONS') {
@@ -54,10 +55,15 @@ app.get('/health', async (_request, response) => {
   }
 });
 
+app.use('/api', (_request, response, next) => {
+  response.setHeader('Cache-Control', 'no-store');
+  next();
+});
+
 app.use('/api', apiRouter);
 
 const errorHandler: ErrorRequestHandler = (error: unknown, request, response, _next) => {
-  if (response.headersSent) return;
+  if (response.headersSent) return _next(error);
   if (error instanceof ZodError) {
     response.status(400).json({ error: 'Invalid request data.' });
     return;

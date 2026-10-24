@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './AdminPages.css';
 import { FaTrash } from 'react-icons/fa';
-import { auth } from '../../firebase';
 import { getAdminUsers, type ApiUser } from '../../lib/api';
 
 const Users = () => {
@@ -11,14 +10,7 @@ const Users = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const currentUser = auth.currentUser;
-    if (!currentUser) {
-      setError('Sign in with an administrator account to view users.');
-      setLoading(false);
-      return;
-    }
-
-    void getAdminUsers(currentUser)
+    void getAdminUsers()
       .then((users) => {
         if (isMounted) setUsersData(users);
       })

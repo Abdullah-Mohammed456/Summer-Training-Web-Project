@@ -6,7 +6,6 @@ const environmentSchema = z.object({
   DATABASE_URL: z.string().url(),
   DIRECT_DATABASE_URL: z.string().url().optional(),
   DATABASE_SSL: z.enum(['true', 'false']).default('true'),
-  FIREBASE_PROJECT_ID: z.string().min(1),
   CORS_ALLOWED_ORIGINS: z.string().min(1).default('http://localhost:5173'),
 });
 
@@ -41,6 +40,5 @@ export const config = {
   databaseUrl: values.DATABASE_URL,
   directDatabaseUrl: values.DIRECT_DATABASE_URL,
   databaseSsl: values.DATABASE_SSL === 'true',
-  firebaseProjectId: values.FIREBASE_PROJECT_ID,
   allowedOrigins: new Set(allowedOrigins),
 } as const;

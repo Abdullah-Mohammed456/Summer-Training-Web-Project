@@ -1,14 +1,20 @@
-import type { User } from 'firebase/auth';
-
 export interface ApiUser {
   uid: string;
-  email: string | null;
-  displayName: string | null;
+  email: string;
+  displayName: string;
   role: 'admin' | 'user';
   createdAt: string;
 }
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL ?? '').trim().replace(/\/+$/, '');
+export class ApiError extends Error {
+  readonly status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+  }
+}
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null;
@@ -17,8 +23,8 @@ const parseUser = (value: unknown): ApiUser => {
   if (
     !isRecord(value) ||
     typeof value.uid !== 'string' ||
-    (value.email !== null && typeof value.email !== 'string') ||
-    (value.displayName !== null && typeof value.displayName !== 'string') ||
+    typeof value.email !== 'string' ||
+    typeof value.displayName !== 'string' ||
     (value.role !== 'admin' && value.role !== 'user') ||
     typeof value.createdAt !== 'string'
   ) {
@@ -33,45 +39,75 @@ const parseUser = (value: unknown): ApiUser => {
   };
 };
 
-const request = async (path: string, user: User, init?: RequestInit): Promise<unknown> => {
-  if (!apiBaseUrl) {
-    throw new Error('VITE_API_BASE_URL is not configured.');
-  }
+const parseUserResponse = (value: unknown): ApiUser => {
+  if (!isRecord(value)) throw new Error('The API returned an invalid response.');
+  return parseUser(value.user);
+};
 
-  const token = await user.getIdToken();
+const apiRequest = async (path: string, init?: RequestInit): Promise<unknown> => {
   const headers = new Headers(init?.headers);
   if (init?.body && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
   }
-  headers.set('Authorization', `Bearer ${token}`);
-  const response = await fetch(`${apiBaseUrl}/api${path}`, {
+  const response = await fetch(`/api${path}`, {
     ...init,
+    credentials: 'same-origin',
     headers,
   });
 
-  if (!response.ok) {
-    throw new Error('The API request could not be completed.');
+  let payload: unknown;
+  try {
+    payload = await response.json();
+  } catch {
+    throw new ApiError(response.status, 'The server returned an invalid response.');
   }
-  return (await response.json()) as unknown;
+
+  if (!response.ok) {
+    const message = isRecord(payload) && typeof payload.error === 'string'
+      ? payload.error
+      : 'The request could not be completed.';
+    throw new ApiError(response.status, message);
+  }
+  return payload;
 };
 
-export const getApiUser = async (user: User): Promise<ApiUser> => {
-  const payload = await request('/auth/me', user);
-  if (!isRecord(payload)) throw new Error('The API returned an invalid profile.');
-  return parseUser(payload.user);
+export const getCurrentUser = async (): Promise<ApiUser | null> => {
+  try {
+    return parseUserResponse(await apiRequest('/auth/me'));
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 401) return null;
+    throw error;
+  }
 };
 
-export const saveApiProfile = async (user: User, displayName: string): Promise<ApiUser> => {
-  const payload = await request('/auth/profile', user, {
+export const login = async (email: string, password: string): Promise<ApiUser> =>
+  parseUserResponse(await apiRequest('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+  }));
+
+export const register = async (
+  email: string,
+  password: string,
+  displayName: string,
+): Promise<ApiUser> =>
+  parseUserResponse(await apiRequest('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify({ email, password, displayName }),
+  }));
+
+export const logout = async (): Promise<void> => {
+  await apiRequest('/auth/logout', { method: 'POST' });
+};
+
+export const updateProfile = async (displayName: string): Promise<ApiUser> =>
+  parseUserResponse(await apiRequest('/auth/profile', {
     method: 'POST',
     body: JSON.stringify({ displayName }),
-  });
-  if (!isRecord(payload)) throw new Error('The API returned an invalid profile.');
-  return parseUser(payload.user);
-};
+  }));
 
-export const getAdminUsers = async (user: User): Promise<ApiUser[]> => {
-  const payload = await request('/admin/users', user);
+export const getAdminUsers = async (): Promise<ApiUser[]> => {
+  const payload = await apiRequest('/admin/users');
   if (!isRecord(payload) || !Array.isArray(payload.users)) {
     throw new Error('The API returned an invalid user list.');
   }

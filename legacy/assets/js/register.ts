@@ -1,5 +1,4 @@
-import { createUserWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
-import { auth } from '../../../src/firebase';
+import { logout, register } from '../../../src/lib/api';
 
 const registerButton = document.getElementById('register-btn');
 
@@ -18,14 +17,9 @@ registerButton?.addEventListener('click', async (event) => {
   }
 
   try {
-    const credential = await createUserWithEmailAndPassword(
-      auth,
-      emailInput.value.trim(),
-      passwordInput.value,
-    );
     const displayName = nameInput.value.trim();
-    if (displayName) await updateProfile(credential.user, { displayName });
-    await signOut(auth);
+    await register(emailInput.value.trim(), passwordInput.value, displayName);
+    await logout();
     window.alert('Account created. Please log in.');
     window.location.assign('./login&register.html');
   } catch {

@@ -1,6 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { getApiUser } from '../../../src/lib/api';
-import { auth } from '../../../src/firebase';
+import { login } from '../../../src/lib/api';
 
 const loginButton = document.getElementById('login-btn');
 
@@ -14,13 +12,8 @@ loginButton?.addEventListener('click', async (event) => {
   }
 
   try {
-    const credential = await signInWithEmailAndPassword(
-      auth,
-      emailInput.value.trim(),
-      passwordInput.value,
-    );
-    const profile = await getApiUser(credential.user);
-    window.location.assign(profile.role === 'admin' ? './AdminPage.html' : './products.html');
+    const user = await login(emailInput.value.trim(), passwordInput.value);
+    window.location.assign(user.role === 'admin' ? './AdminPage.html' : './products.html');
   } catch {
     window.alert('Login failed. Check your email and password.');
   }

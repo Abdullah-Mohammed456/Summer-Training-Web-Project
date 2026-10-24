@@ -1,37 +1,26 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { auth } from '../firebase';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from 'firebase/auth';
-import { getApiUser, saveApiProfile } from '../lib/api';
+import { ApiError } from '../lib/api';
+import { useAuth } from '../lib/auth-context';
 import './Login.css';
 
 type AuthMode = 'login' | 'register';
 
 const getSafeAuthError = (error: unknown): string => {
-  const code =
-    typeof error === 'object' && error !== null && 'code' in error
-      ? error.code
-      : undefined;
-
-  switch (code) {
-    case 'auth/invalid-credential':
-    case 'auth/user-not-found':
-    case 'auth/wrong-password':
-      return 'Email or password is incorrect.';
-    case 'auth/email-already-in-use':
-      return 'An account already uses this email.';
-    case 'auth/invalid-email':
-      return 'Enter a valid email address.';
-    case 'auth/weak-password':
-      return 'Choose a stronger password.';
-    default:
-      return 'We could not complete that request. Please try again.';
+  if (error instanceof ApiError) {
+    switch (error.status) {
+      case 401:
+        return 'Email or password is incorrect.';
+      case 409:
+        return 'An account already uses this email.';
+      case 429:
+        return 'Too many attempts. Please try again later.';
+      case 400:
+        return 'Check the entered details and use a password with at least 12 characters.';
+    }
   }
+  return 'We could not complete that request. Please try again.';
 };
 
 const Login = () => {
@@ -42,24 +31,15 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login, register } = useAuth();
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     setLoading(true);
     try {
-      const cred = await signInWithEmailAndPassword(auth, email, password);
-      try {
-        const profile = await getApiUser(cred.user);
-        if (profile.role === 'admin') {
-          navigate('/admin');
-          return;
-        }
-      } catch {
-        // Admin access is checked again by the API before any protected data is returned.
-      }
-
-      navigate('/products');
+      const user = await login(email, password);
+      navigate(user.role === 'admin' ? '/admin' : '/products');
     } catch (authError: unknown) {
       setError(getSafeAuthError(authError));
     } finally {
@@ -73,16 +53,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
-      if (name) {
-        await updateProfile(userCred.user, { displayName: name });
-      }
-      try {
-        await saveApiProfile(userCred.user, name);
-      } catch {
-        // The account remains usable; the API creates its profile on the next authenticated request.
-      }
-
+      await register(email, password, name);
       navigate('/products');
     } catch (authError: unknown) {
       setError(getSafeAuthError(authError));
@@ -124,7 +95,7 @@ const Login = () => {
               
               <div className="form-group">
                 <label htmlFor="login-password">Password</label>
-                <input type="password" id="login-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
+                <input type="password" id="login-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" maxLength={128} required />
               </div>
               
               <button type="submit" className="auth-btn" disabled={loading}>
@@ -142,7 +113,7 @@ const Login = () => {
               
               <div className="form-group">
                 <label htmlFor="reg-name">Full Name</label>
-                <input type="text" id="reg-name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" required />
+                <input type="text" id="reg-name" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" maxLength={120} required />
               </div>
 
               <div className="form-group">
@@ -152,7 +123,7 @@ const Login = () => {
               
               <div className="form-group">
                 <label htmlFor="reg-password">Password</label>
-                <input type="password" id="reg-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
+                <input type="password" id="reg-password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" minLength={12} maxLength={128} required />
               </div>
               
               <button type="submit" className="auth-btn" disabled={loading}>
