@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: netclaks-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --include=dev && npm run server:build && npm run db:migrate
+    startCommand: npm run server:start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: "true"
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false

@@ -86,46 +86,6 @@
             </form>
         </div>
 
-        <!-- Admin Register Form -->
-        <div class="form-box admin-register">
-            <form action="#" id="admin-register-form">
-                <h1>Admin Register</h1>
-
-                <div class="input-box">
-                    <input id="admin-register-username" type="text" placeholder="Admin Username"
-                        aria-label="Admin Username" required>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-                <div class="input-box">
-                    <input id="admin-register-email" type="email" placeholder="Admin Email" aria-label="Admin Email"
-                        required>
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-
-                <div class="input-box">
-                    <input id="admin-register-password" type="password" placeholder="Password" aria-label="Password"
-                        required>
-                    <i class="fa-solid fa-eye toggle-password" data-target="admin-register-password"
-                        aria-label="Show password" role="button" tabindex="0"></i>
-                </div>
-
-                <div class="input-box">
-                    <input id="admin-secret-key" type="password" placeholder="Secret Key" aria-label="Admin Secret Key"
-                        required>
-                    <i class="fa-solid fa-key"></i>
-                </div>
-
-                <div class="password-strength" id="admin-password-strength">
-                    <div class="strength-bar"></div>
-                    <span class="strength-label">Strength: —</span>
-                </div>
-
-                <button id="admin-register-btn" type="submit" class="btn">Register as Admin</button>
-                <p>Admin only</p>
-            </form>
-        </div>
-
         <!-- Toggle Box  -->
         <div class="toggle-box">
 
@@ -134,8 +94,6 @@
                 <h1>Hello, Welcome!</h1>
                 <p>Don't have an Account?</p>
                 <button class="btn register-btn">Register</button>
-                <p>Are you an Admin?</p>
-                <button class="btn admin-register-btn">Admin Register</button>
             </div>
 
             <!-- Toggle Box Right -->
@@ -147,11 +105,11 @@
         </div>
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="../assets/js/loginscript.js"></script>
-<script type="module" src="../assets/js/Login.js"></script>
-<script type="module" src="../assets/js/register.js"></script>
-<script type="module" src="../assets/js/adminRegister.js"></script>
-<script type="module" src="../assets/js/auth-state.js"></script>
+
+<script type="module" src="../assets/js/loginscript.ts"></script>
+<script type="module" src="../assets/js/Login.ts"></script>
+<script type="module" src="../assets/js/register.ts"></script>
+
+<script type="module" src="../assets/js/auth-state.ts"></script>
 
 </html>
