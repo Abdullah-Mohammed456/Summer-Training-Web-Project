@@ -1,4 +1,4 @@
-# NetClaks
+# NetClaks — Automotive Showroom
 
 An automotive showroom experience for exploring premium vehicles, with API-backed accounts and a protected administrator area.
 
@@ -7,16 +7,7 @@ An automotive showroom experience for exploring premium vehicles, with API-backe
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](tsconfig.json)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAbdullah-Mohammed456%2FSummer-Training-Web-Project)
 
-**Live demo:** Not deployed yet. Deploy the frontend using the instructions below.
-
-## Screenshots
-
-Add current screenshots before release:
-
-- Homepage: `docs/screenshots/homepage.webp`
-- Vehicle catalog: `docs/screenshots/catalog.webp`
-- Mobile experience: `docs/screenshots/mobile.webp`
-- Optional walkthrough: `docs/screenshots/walkthrough.gif`
+**Status:** Not publicly deployed.
 
 ## Features
 
@@ -156,13 +147,12 @@ vercel.json                Vercel build, routing, and security headers
 render.yaml                Render API service configuration
 ```
 
-## Roadmap
+## Current limitations
 
-- Replace sample vehicle and order data with authenticated API-backed records.
-- Connect the contact form to a validated server endpoint.
-- Add automated API and frontend tests.
-- Add and maintain production screenshots and a short walkthrough GIF.
-- Complete a credentialed deployment and publish the live Vercel and Render URLs.
+- Vehicle, order, and some admin views use sample data.
+- The contact form is not connected to an API endpoint.
+- No automated test suite is configured yet.
+- The app is not publicly deployed.
 
 ## Contributing
 
